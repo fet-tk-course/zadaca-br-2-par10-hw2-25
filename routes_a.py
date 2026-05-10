@@ -38,3 +38,16 @@ def create_album(album: AlbumCreate, session: Session = Depends(get_session)):
     session.commit()
     session.refresh(new_db_album)
     return new_db_album
+
+@router.put("/{album_id}", response_model=Album)
+def update_album(album_id: int, album_update: AlbumCreate, session: Session=Depends(get_session)):
+    db_album = session.get(Album, album_id)
+    if not db_album:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Album nije pronađen")
+    album_data = album_update.model_dump() 
+    for key, value in album_data.items():
+        setattr(db_album, key, value)
+    session.add(db_album)
+    session.commit()
+    session.refresh(db_album)
+    return db_album
