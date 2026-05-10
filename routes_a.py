@@ -23,3 +23,10 @@ def read_albums(
                     
     albums=session.exec(query).all()
     return albums
+
+@router.get("/{album_id}", response_model=Album)
+def read_album(album_id: int, session: Session = Depends(get_session)):
+    db_album = session.get(Album, album_id)
+    if not db_album:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Album nije pronađen")
+    return db_album 
