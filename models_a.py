@@ -29,7 +29,7 @@ class AlbumUpdate(SQLModel):
     is_available: Optional[bool] = None
     world_premiere: Optional[date] = None
 
-class AlbumFilter(SQLModel, table=False):
+class AlbumFilter(SQLModel, table=False): 
     title: Optional[str] = None
     artist: Optional[str] = None
     release_year: Optional[int] = None
