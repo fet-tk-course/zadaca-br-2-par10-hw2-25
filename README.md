@@ -73,8 +73,8 @@ curl -X POST "http://localhost:8000/resursi_a" \
 
 ## Korištenje AI alata
 
-### Alat: [GitHub Copilot / ChatGPT / ...]
-**Model:** [GPT-4, Copilot model, ...]
+### Alat: Google Gemini AI
+**Model:** 
 
 **Primjer 1:**
 - **Prompt:** Potrebno implementirati GET endpoint sa query parametrima. Prilažem ti kod i na osnovu njega mi daj prijedlog kako da poboljšam isti, bez pisanja if statementa za svaki zahtjev, uključujući edge cases.
