@@ -3,11 +3,11 @@
 
 ## O projektu
 
-[Ovdje ukratko opišite domenu vaše aplikacije i njenu svrhu]
+Kao domenu naše aplikacije odabrali smo muzičku industriju. S obzirom na to da u toj domeni imamo raznolike mogućnosti za kreiranje potrebnih endpointa, odlučili smo analizirati relaciju albumi/pjesme. Student A se bavi albumima, dok se student B bavi pjesmama.
 
 ## Tim
 
-- **Student A**: [Ime Prezime] - resurs: `/resursi_a`
+- **Student A**: Tahira Zukić - resurs: `/Albumi`
 - **Student B**: [Ime Prezime] - resurs: `/resursi_b`
 
 ## Instalacija i pokretanje
@@ -48,16 +48,16 @@ uvicorn main:app --reload
 
 ## API Endpointi
 
-### Resurs A: `/resursi_a`
+### Resurs A: `/Albumi`
 
 | Metoda | Ruta | Opis |
 |--------|------|------|
-| GET | `/resursi_a` | Lista svih resursa (sa query filterom) |
-| GET | `/resursi_a/{id}` | Dohvatanje resursa po ID-u |
-| POST | `/resursi_a` | Kreiranje novog resursa |
-| PUT | `/resursi_a/{id}` | Potpuna zamjena resursa |
-| PATCH | `/resursi_a/{id}` | Djelimično ažuriranje resursa |
-| DELETE | `/resursi_a/{id}` | Brisanje resursa |
+| GET | `/Albumi` | Lista svih resursa (sa query filterom) |
+| GET | `/Albumi/{id}` | Dohvatanje resursa po ID-u |
+| POST | `/Albumi` | Kreiranje novog resursa |
+| PUT | `/Albumi/{id}` | Potpuna zamjena resursa |
+| PATCH | `/Albumi/{id}` | Djelimično ažuriranje resursa |
+| DELETE | `/Albumi/{id}` | Brisanje resursa |
 
 **Primjer zahtjeva:**
 ```bash
@@ -77,9 +77,9 @@ curl -X POST "http://localhost:8000/resursi_a" \
 **Model:** [GPT-4, Copilot model, ...]
 
 **Primjer 1:**
-- **Prompt:** [Npr. "Kreiraj SQLModel klasu za entitet Knjiga sa poljima naslov, autor, godina, isbn"]
-- **Kako je pomoglo:** [Opis]
-- **Prilagodbe:** [Da li ste morali prilagoditi generisani kod]
+- **Prompt:** Potrebno implementirati GET endpoint sa query parametrima. Prilažem ti kod i na osnovu njega mi daj prijedlog kako da poboljšam isti, bez pisanja if statementa za svaki zahtjev, uključujući edge cases.
+- **Kako je pomoglo:** Unaprijedilo je moj moj kod. Kod izgleda elegantnije i razumljiv je za čitanje. Nema if statementa, koji jesu korisni za čitanje i razumijevanje koda, ali nisu estetični vizuelno. 
+- **Prilagodbe:** Kod sam minimalno prilagodila svojim mogućnostima razumijevanja.
 
 **Primjer 2:**
 - **Prompt:** [Npr. "Implementiraj PATCH endpoint sa exclude_unset=True"]
