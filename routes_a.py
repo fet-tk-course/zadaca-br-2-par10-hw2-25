@@ -5,7 +5,7 @@ from models_a import Album, AlbumCreate, AlbumUpdate, AlbumFilter
 from database import get_session
 
 
-router = APIRouter(prefix="/Albums", tags=["Resurs A"])
+router = APIRouter(prefix="/Albumi", tags=["Resurs A"])
 @router.get("/", response_model=List[Album])
 def read_albums(
     params:AlbumFilter=Depends(),
