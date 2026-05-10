@@ -30,3 +30,11 @@ def read_album(album_id: int, session: Session = Depends(get_session)):
     if not db_album:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Album nije pronađen")
     return db_album 
+
+@router.post("/", response_model=Album, status_code=status.HTTP_201_CREATED)
+def create_album(album: AlbumCreate, session: Session = Depends(get_session)):
+    new_db_album = Album.model_validate(album)
+    session.add(new_db_album)
+    session.commit()
+    session.refresh(new_db_album)
+    return new_db_album
