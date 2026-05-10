@@ -20,3 +20,13 @@ class AlbumCreate(SQLModel):
     is_available: bool = Field(default=True)  
     world_premiere: date
 
+class AlbumUpdate(SQLModel):
+    id: Optional[int] = None
+    title: Optional[str] = None
+    artist: Optional[str] = None
+    release_year: Optional[int] = None
+    price: Optional[float] = None
+    is_available: Optional[bool] = None
+    world_premiere: Optional[date] = None
+
+    
