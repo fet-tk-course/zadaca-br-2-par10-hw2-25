@@ -8,7 +8,7 @@ Kao domenu naše aplikacije odabrali smo muzičku industriju. S obzirom na to da
 ## Tim
 
 - **Student A**: Tahira Zukić - resurs: `/Albumi`
-- **Student B**: Ehlimana Beganović - resurs: `/Pjesme`
+- **Student B**: Ehlimana Beganović - resurs: `/Songs`
 
 ## Instalacija i pokretanje
 
