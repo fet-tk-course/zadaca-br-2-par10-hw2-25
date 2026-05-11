@@ -5,8 +5,7 @@ from typing import Optional
 class SongBase(SQLModel):
     title: str
     artist: str
-    duration: int  # Duration in seconds
-    price: float = Field(default=0.0)
+    duration: int  # Duration u sekundama
     is_available: bool = Field(default=True)
     genre: Optional[str] = None
     album_id: Optional[int] = None
@@ -24,7 +23,6 @@ class SongUpdate(SQLModel):
     title: Optional[str] = None
     artist: Optional[str] = None
     duration: Optional[int] = None
-    price: Optional[float] = None
     is_available: Optional[bool] = None
     genre: Optional[str] = None
     album_id: Optional[int] = None 
