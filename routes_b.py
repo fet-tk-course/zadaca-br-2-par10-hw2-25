@@ -19,7 +19,7 @@ def read_songs(genre: Optional[str] = None, session: Session = Depends(get_sessi
 def read_song(song_id: int, session: Session = Depends(get_session)):
     db_song = session.get(Song, song_id)
     if not db_song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Pjesma nije pronađena")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song is not found")
     return db_song
 
 @router.post("/", response_model=Song, status_code=status.HTTP_201_CREATED)
@@ -34,7 +34,7 @@ def create_song(song: SongCreate, session: Session = Depends(get_session)):
 def update_song(song_id: int, song_input: SongCreate, session: Session = Depends(get_session)):
     db_song = session.get(Song, song_id)
     if not db_song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Pjesma nije pronađena")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song is not found")
     song_data = song_input.model_dump()
     for key, value in song_data.items():
         setattr(db_song, key, value)
@@ -47,7 +47,7 @@ def update_song(song_id: int, song_input: SongCreate, session: Session = Depends
 def partial_update_song(song_id: int, song_update: SongUpdate, session: Session = Depends(get_session)):
     db_song = session.get(Song, song_id)
     if not db_song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Pjesma nije pronađena")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song is not found")
     #Dumpujem podatke iz song_update objekta, ali samo one koje su postavljene (exclude_unset=True)
     song_data = song_update.model_dump(exclude_unset=True)
     for key, value in song_data.items():
@@ -62,7 +62,7 @@ def partial_update_song(song_id: int, song_update: SongUpdate, session: Session 
 def delete_song(song_id: int, session: Session = Depends(get_session)):
     db_song = session.get(Song, song_id)
     if not db_song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Pjesma nije pronađena")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song is not found")
     session.delete(db_song)
     session.commit()
     return None

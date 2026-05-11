@@ -6,6 +6,7 @@ class SongBase(SQLModel):
     title: str
     artist: str
     duration: int  # Duration u sekundama
+    price: float = 0.0
     is_available: bool = Field(default=True)
     genre: Optional[str] = None
     album_id: Optional[int] = None  # Veza sa Albumom, može biti null ako pjesma nije povezana s albumom
@@ -23,6 +24,7 @@ class SongUpdate(SQLModel):
     title: Optional[str] = None
     artist: Optional[str] = None
     duration: Optional[int] = None
+    price: Optional[float] = None
     is_available: Optional[bool] = None
     genre: Optional[str] = None
     album_id: Optional[int] = None 
