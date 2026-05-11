@@ -9,7 +9,7 @@ class SongBase(SQLModel):
     price: float = Field(default=0.0)
     is_available: bool = Field(default=True)
     genre: Optional[str] = None
-    album_id: Optional[int] = Field(default=None, foreign_key="album.id")
+    album_id: Optional[int] = None
 
 #Klasa koja predstavlja tabelu u bazi podataka, nasljeđuje SongBase i dodaje id polje koje je primarni ključ
 class Song(SongBase, table=True):
@@ -28,4 +28,3 @@ class SongUpdate(SQLModel):
     is_available: Optional[bool] = None
     genre: Optional[str] = None
     album_id: Optional[int] = None 
-    
