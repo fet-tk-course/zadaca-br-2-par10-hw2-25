@@ -8,7 +8,7 @@ Kao domenu naše aplikacije odabrali smo muzičku industriju. S obzirom na to da
 ## Tim
 
 - **Student A**: Tahira Zukić - resurs: `/Albumi`
-- **Student B**: Ehlimana Beganović - resurs: `/Songs`
+- **Student B**: Ehlimana Beganović - resurs: `/songs`
 
 ## Instalacija i pokretanje
 
@@ -67,9 +67,16 @@ curl -X POST "http://localhost:8000/resursi_a" \
   -d '{"polje1": "vrijednost", "polje2": 123}'
 ```
 
-### Resurs B: `/resursi_b`
+### Resurs B: `/songs`
 
-[Analogno kao za Resurs A]
+| Metoda | Ruta | Opis |
+|--------|------|------|
+| GET | `/songs` | Lista svih pjesama |
+| GET | `/songs/{song_id}` | Dohvatanje pjesme po ID-u |
+| POST | `/songs` | Kreiranje nove pjesme |
+| PUT | `/songs/{song_id}` | Potpuna zamjena pjesama |
+| PATCH | `/songs/{song_id}` | Djelimično ažuriranje podataka o pjesmi |
+| DELETE | `/songs/{song_id}` | Brisanje pjesme |
 
 ## Korištenje AI alata
 
