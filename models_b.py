@@ -8,7 +8,7 @@ class SongBase(SQLModel):
     duration: int  # Duration u sekundama
     is_available: bool = Field(default=True)
     genre: Optional[str] = None
-    album_id: Optional[int] = None
+    album_id: Optional[int] = None  # Veza sa Albumom, može biti null ako pjesma nije povezana s albumom
 
 #Klasa koja predstavlja tabelu u bazi podataka, nasljeđuje SongBase i dodaje id polje koje je primarni ključ
 class Song(SongBase, table=True):
