@@ -93,6 +93,3 @@ curl -X POST "http://localhost:8000/resursi_a" \
 - **Kako je pomoglo:** AI mi je objasnio da SQLite baza zadržava početnu strukturu iako sam promijenila kod. Rekao mi je da moram ili vratiti polje u model ili obrisati .db file kako bi se tabela ponovo kreirala sa ispravnim poljima. 
 - **Prilagodbe:** Odlučila sam se za povratak polja price, ali sam naučila šta se desi ako mijenjam kod nakon prvobitnog formiranja baze.
 
-## Napomene
-
-[Dodatne napomene specifične za vašu implementaciju]
