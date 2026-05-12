@@ -8,7 +8,7 @@ Kao domenu naše aplikacije odabrali smo muzičku industriju. S obzirom na to da
 ## Tim
 
 - **Student A**: Tahira Zukić - resurs: `/Albumi`
-- **Student B**: [Ime Prezime] - resurs: `/resursi_b`
+- **Student B**: Ehlimana Beganović - resurs: `/songs`
 
 ## Instalacija i pokretanje
 
@@ -67,13 +67,20 @@ curl -X POST "http://localhost:8000/resursi_a" \
   -d '{"polje1": "vrijednost", "polje2": 123}'
 ```
 
-### Resurs B: `/resursi_b`
+### Resurs B: `/songs`
 
-[Analogno kao za Resurs A]
+| Metoda | Ruta | Opis |
+|--------|------|------|
+| GET | `/songs` | Lista svih pjesama |
+| GET | `/songs/{song_id}` | Dohvatanje pjesme po ID-u |
+| POST | `/songs` | Kreiranje nove pjesme |
+| PUT | `/songs/{song_id}` | Potpuna zamjena pjesama |
+| PATCH | `/songs/{song_id}` | Djelimično ažuriranje podataka o pjesmi |
+| DELETE | `/songs/{song_id}` | Brisanje pjesme |
 
 ## Korištenje AI alata
 
-### Alat: Google Gemini AI
+### Alat: Google Gemini AI, GitHub Copilot
 **Model:** 
 
 **Primjer 1:**
@@ -82,9 +89,9 @@ curl -X POST "http://localhost:8000/resursi_a" \
 - **Prilagodbe:** Kod sam minimalno prilagodila svojim mogućnostima razumijevanja.
 
 **Primjer 2:**
-- **Prompt:** [Npr. "Implementiraj PATCH endpoint sa exclude_unset=True"]
-- **Kako je pomoglo:** [Opis]
-- **Prilagodbe:** [Opis]
+- **Prompt:** Imam grešku "500 Internal Server Error" u FastAPI aplikaciji nakon što sam obrisala jedno polje (price) iz koda. Šta predstavlja ta greška i kako da je ispravim?
+- **Kako je pomoglo:** AI mi je objasnio da SQLite baza zadržava početnu strukturu iako sam promijenila kod. Rekao mi je da moram ili vratiti polje u model ili obrisati .db file kako bi se tabela ponovo kreirala sa ispravnim poljima. 
+- **Prilagodbe:** Odlučila sam se za povratak polja price, ali sam naučila šta se desi ako mijenjam kod nakon prvobitnog formiranja baze.
 
 ## Napomene
 
