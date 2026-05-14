@@ -52,6 +52,9 @@ def update_album(album_id: int, album_update: AlbumCreate, session: Session=Depe
     session.refresh(db_album)
     return db_album
 
+
+    
+
 @router.patch("/{album_id}", response_model=Album)
 def partial_update_album(album_id: int, album_update: AlbumUpdate, session: Session=Depends(get_session)):
     db_album = session.get(Album, album_id)
