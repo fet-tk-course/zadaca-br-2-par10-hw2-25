@@ -1,6 +1,9 @@
 from sqlmodel import SQLModel, Field
 from typing import Optional
 from datetime import date
+from pydantic import field_validator
+
+
 
 
 class Album(SQLModel, table=True):
@@ -36,3 +39,9 @@ class AlbumFilter(SQLModel, table=False):
     price: Optional[float] = None
     is_available: Optional[bool] = None
     world_premiere: Optional[date] = None
+
+class MyResourceCreate(SQLModel):
+    title: str
+    price: int
+    release_year: int
+
