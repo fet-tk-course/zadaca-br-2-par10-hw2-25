@@ -66,6 +66,14 @@ curl -X POST "http://localhost:8000/resursi_a" \
   -H "Content-Type: application/json" \
   -d '{"polje1": "vrijednost", "polje2": 123}'
 ```
+### Resurs A: Odbrana zadaće
+**Zadatak 1:**
+U zadatku br. 1 kreirani su validatori za polja title, price i release_year. Za polje title, validator je da to polje ne može biti prazno. Polje release_year ne smije biti tipa float, dok price ne smije biti veća od 10000. Kreirana je nova klasa koja sadrži samo navedena polja. Validatori su testirani u POST endpointu. Greške koje potencijalno mogu nastati su HTTP_404_NOT_FOUND, HTTP_409_CONFLICT i sl. 
+Primjer zahtjeva: curl -X POST "http://localhost:8000/resursi_a" \
+  -H "Content-Type: application/json" \
+  -d '{"polje1": "vrijednost", "polje2": 123}'.
+
+
 
 ### Resurs B: `/resursi_b`
 
