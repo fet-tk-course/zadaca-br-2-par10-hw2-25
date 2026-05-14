@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from database import create_db_and_tables
-
+from models_a import Album
+from routes_a import router as album_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -19,3 +20,4 @@ app = FastAPI(
 @app.get("/")
 def read_root():
     return {"message": "Zadaća 2 - REST API"}
+app.include_router(album_router)    
