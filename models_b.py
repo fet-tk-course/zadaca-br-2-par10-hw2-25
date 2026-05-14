@@ -1,5 +1,6 @@
 from sqlmodel import SQLModel, Field
 from typing import Optional
+from pydantic import field_validator
 
 #Osnovni model sa svim poljima koje pjesma ima
 class SongBase(SQLModel):
@@ -18,6 +19,27 @@ class Song(SongBase, table=True):
 #Shema za kreiranje nove pjesme (POST zahtjev)
 class SongCreate(SongBase):
     pass
+    @field_validator('title')
+    @classmethod
+    def not_empty_title(cls, v):
+        if not v.strip():
+            raise ValueError('Naziv pjesme ne smije biti prazan string!')
+        return v
+    
+    @field_validator('artist')
+    @classmethod
+    def not_empty_artist(cls, v):
+        if not v.strip():
+            raise ValueError('Naziv izvođača ne smije biti prazan string!')
+        return v
+    
+    @classmethod
+    def positive_duration(cls, v):
+        if v <= 0:
+            raise ValueError('Trajanje pjesme mora biti pozitivan broj!')
+        return v
+    
+
 
 #Shema za djelimicno ažuriranje pjesme (PATCH zahtjev), sva polja su opcionalna
 class SongUpdate(SQLModel):

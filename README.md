@@ -95,4 +95,9 @@ curl -X POST "http://localhost:8000/resursi_a" \
 
 ## Napomene
 
-[Dodatne napomene specifične za vašu implementaciju]
+**ZADATAK 1 - student B:**
+- U klasu SongCreate su dodani validatori za prazan unos title-a (naslova pjesme) i artist-a (izvođača), kao i validator za unos negativnog broja na duration (trajanje pjesme).  
+- ukoliko su prekršena pravila validatora, error koji vraća je: 422	Error: Unprocessable Content, kao i ispis odgovarajućih poruka.
+
+**ZADATAK 2 - student B:**
+- U file-u routes_b.py sam dodala GET endpoint koji vrši računanje prosjeka duration(trajanja) svih pjesama. Dakle, vraća prosjek trajanja svih pjesama.

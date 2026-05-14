@@ -15,6 +15,12 @@ def read_songs(genre: Optional[str] = None, session: Session = Depends(get_sessi
     songs = session.exec(query).all()
     return songs
 
+@router.get("/prosjek", response_model=int)
+def average_duration(session: Session = Depends(get_session)):
+    result = session.exec(select(Song)).all()
+    total_duration = sum(song.duration for song in result)
+    return total_duration // len(result)
+
 @router.get("/{song_id}", response_model=Song)
 def read_song(song_id: int, session: Session = Depends(get_session)):
     db_song = session.get(Song, song_id)
@@ -22,9 +28,13 @@ def read_song(song_id: int, session: Session = Depends(get_session)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song is not found")
     return db_song
 
+
 @router.post("/", response_model=Song, status_code=status.HTTP_201_CREATED)
 def create_song(song: SongCreate, session: Session = Depends(get_session)):
     new_db_song = Song.model_validate(song)
+    song_exists = session.exec(select(Song).where(Song.title == new_db_song.title, Song.artist == new_db_song.artist)).first()
+    if song_exists:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Pjesma vec postoji!")
     session.add(new_db_song)
     session.commit()
     session.refresh(new_db_song)
